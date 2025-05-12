@@ -26,9 +26,11 @@ jobs:
           azure_static_web_apps_api_token: ${{ secrets.AZURE_STATIC_WEB_APPS_API_TOKEN_KIND_BEACH_08634D310 }}
           repo_token: ${{ secrets.GITHUB_TOKEN }}
           action: "upload"
+
           app_location: "."
           api_location: ""
           output_location: "dist"
+
           app_build_command: npm install --legacy-peer-deps && npm run build
 
 
