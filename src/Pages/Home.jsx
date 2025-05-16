@@ -5,6 +5,7 @@ import AOS from 'aos'
 import 'aos/dist/aos.css'
 import { WhatsApp } from "@mui/icons-material"
 
+
 // Memoized Components
 const StatusBadge = memo(() => (
   <div className="inline-block animate-float lg:mx-0 pl-60" data-aos="zoom-in" data-aos-delay="400">
@@ -84,7 +85,9 @@ const TECH_STACK = ["React", "Node.js", "Tailwind", "Java", "Python", "C#", ".NE
 const SOCIAL_LINKS = [
   { icon: Github, link: "https://github.com/Lahiru-LK" },
   { icon: Linkedin, link: "https://www.linkedin.com/in/lahiruprasadlk/" },
-  { icon: WhatsApp, link: "https://wa.me/message/KRWP3YEGRFLIK1" }
+  { icon: WhatsApp, link: "https://wa.me/message/KRWP3YEGRFLIK1" },
+  { icon: Mail, link: "mailto:lahiruprasad20000321@gmail.com" },
+
 ];
 
 const Home = () => {
