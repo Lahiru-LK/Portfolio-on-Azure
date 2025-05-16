@@ -4,12 +4,13 @@ import { getStorage } from "firebase/storage";
 import { collection, addDoc } from "@firebase/firestore";
 
 const firebaseConfig = {
-    apiKey: "AIzaSyDJPq9a0YPoQYkpQ-Uaw7aXQRXzzqOKzFA",
-    authDomain: "web-kelas-tes.firebaseapp.com",
-    projectId: "web-kelas-tes",
-    storageBucket: "web-kelas-tes.appspot.com",
-    messagingSenderId: "890817433268",
-    appId: "1:890817433268:web:11e5258f8864a6174c11e1"
+  apiKey: "AIzaSyASVYdXUdhB0ftPTYYDMSYI-0LEMua1eCQ",
+  authDomain: "portfolio-lahiru.firebaseapp.com",
+  projectId: "portfolio-lahiru",
+  storageBucket: "portfolio-lahiru.firebasestorage.app",
+  messagingSenderId: "326114378311",
+  appId: "1:326114378311:web:84fc826cef798032cb6762",
+  measurementId: "G-WL23X4Q3EG"
 };
 
 // Initialize with a unique name
@@ -18,5 +19,3 @@ const db = getFirestore(app);
 const storage = getStorage(app);
 
 export { db, storage, collection, addDoc };
-
-
