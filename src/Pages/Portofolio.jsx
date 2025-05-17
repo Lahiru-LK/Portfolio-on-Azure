@@ -113,6 +113,8 @@ const programmingLanguages = [
   { icon: "c.svg", language: "C" },
   { icon: "c++.svg", language: "C++" },
   { icon: "cshap.svg", language: "C#" },
+  
+
 ];
 
 const frameworksAndLibraries = [
@@ -167,6 +169,18 @@ export default function FullWidthTabs() {
   const [showAllCertificates, setShowAllCertificates] = useState(false);
   const isMobile = window.innerWidth < 768;
   const initialItems = isMobile ? 4 : 6;
+
+
+  const toggleToolsView = () => setShowAllTools(prev => !prev);
+  
+  const [showAllLanguages, setShowAllLanguages] = useState(false);
+  const [showAllFrameworks, setShowAllFrameworks] = useState(false);
+  const [showAllTools, setShowAllTools] = useState(false);
+
+  const displayedLanguages = showAllLanguages ? programmingLanguages : programmingLanguages.slice(0, 12);
+  const displayedFrameworks = showAllFrameworks ? frameworksAndLibraries : frameworksAndLibraries.slice(0, 12);
+  const displayedTools = showAllTools ? toolsAndPlatforms : toolsAndPlatforms.slice(0, 12);
+
 
   useEffect(() => {
     // Initialize AOS once
@@ -390,26 +404,69 @@ export default function FullWidthTabs() {
 
           <TabPanel value={value} index={2} dir={theme.direction}>
             <div className="container mx-auto flex flex-col justify-center items-center overflow-hidden pb-[5%] gap-10 text-slate-400 ">
-              {[{ title: "Programming Languages", list: programmingLanguages }, { title: "Frameworks & Libraries", list: frameworksAndLibraries }, { title: "Tools & Platforms", list: toolsAndPlatforms }].map((section, sIndex) => (
-                <div key={sIndex} className="w-full">
-                  <h3 className="text-xl md:text-2xl text-slate-400 font-semibold mb-5 border-b border-white/10 pb-2">
-                    {section.title}
-                  </h3>
-                  <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-5">
-                    {section.list.map((stack, index) => (
-                      <div
-                        key={index}
-                        data-aos={index % 3 === 0 ? "fade-up-right" : index % 3 === 1 ? "fade-up" : "fade-up-left"}
-                        data-aos-duration={index % 3 === 0 ? "1000" : index % 3 === 1 ? "1200" : "1000"}
-                      >
-                        <TechStackIcon TechStackIcon={stack.icon} Language={stack.language} />
-                      </div>
-                    ))}
-                  </div>
+
+              {/* Programming Languages */}
+              <div className="w-full">
+                <h3 className="text-xl md:text-2xl text-slate-400 font-semibold mb-5 border-b border-white/10 pb-2">
+                  Programming Languages
+                </h3>
+                <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-5">
+                  {displayedLanguages.map((stack, index) => (
+                    <div key={index} data-aos="fade-up">
+                      <TechStackIcon TechStackIcon={stack.icon} Language={stack.language} />
+                    </div>
+                  ))}
                 </div>
-              ))}
+                {programmingLanguages.length > 12 && (
+                  <div className="mt-6 w-full flex justify-start">
+                    <ToggleButton onClick={() => setShowAllLanguages(prev => !prev)} isShowingMore={showAllLanguages} />
+                  </div>
+                )}
+              </div>
+
+
+              {/* Frameworks & Libraries */}
+              <div className="w-full">
+                <h3 className="text-xl md:text-2xl text-slate-400 font-semibold mb-5 border-b border-white/10 pb-2">
+                  Frameworks & Libraries
+                </h3>
+                <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-5">
+                  {displayedFrameworks.map((stack, index) => (
+                    <div key={index} data-aos="fade-up">
+                      <TechStackIcon TechStackIcon={stack.icon} Language={stack.language} />
+                    </div>
+                  ))}
+                </div>
+                {frameworksAndLibraries.length > 12 && (
+                  <div className="mt-6 w-full flex justify-start">
+                    <ToggleButton onClick={() => setShowAllFrameworks(prev => !prev)} isShowingMore={showAllFrameworks} />
+                  </div>
+                )}
+              </div>
+
+
+              {/* Tools & Platforms */}
+              <div className="w-full">
+                <h3 className="text-xl md:text-2xl text-slate-400 font-semibold mb-5 border-b border-white/10 pb-2">
+                  Tools & Platforms
+                </h3>
+                <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-5">
+                  {displayedTools.map((stack, index) => (
+                    <div key={index} data-aos="fade-up">
+                      <TechStackIcon TechStackIcon={stack.icon} Language={stack.language} />
+                    </div>
+                  ))}
+                </div>
+                {toolsAndPlatforms.length > 12 && (
+                  <div className="mt-6 w-full flex justify-start">
+                    <ToggleButton onClick={() => setShowAllTools(prev => !prev)} isShowingMore={showAllTools} />
+                  </div>
+                )}
+              </div>
+
             </div>
           </TabPanel>
+
 
         </>
       </Box>
