@@ -18,7 +18,6 @@ import { Code, Award, Boxes } from "lucide-react";
 
 
 
-
 // Separate ShowMore/ShowLess button component
 const ToggleButton = ({ onClick, isShowingMore }) => (
   <button
@@ -103,19 +102,60 @@ function a11yProps(index) {
   };
 }
 
-const techStacks = [
+// Split techStacks into categories
+const programmingLanguages = [
   { icon: "html.svg", language: "HTML" },
   { icon: "css.svg", language: "CSS" },
   { icon: "javascript.svg", language: "JavaScript" },
+  { icon: "java.svg", language: "Java" },
+  { icon: "python.svg", language: "Python" },
+  { icon: "php.svg", language: "PHP" },
+  { icon: "c.svg", language: "C" },
+  { icon: "c++.svg", language: "C++" },
+  { icon: "cshap.svg", language: "C#" },
+];
+
+const frameworksAndLibraries = [
   { icon: "tailwind.svg", language: "Tailwind CSS" },
   { icon: "reactjs.svg", language: "ReactJS" },
   { icon: "vite.svg", language: "Vite" },
   { icon: "nodejs.svg", language: "Node JS" },
   { icon: "bootstrap.svg", language: "Bootstrap" },
   { icon: "firebase.svg", language: "Firebase" },
-  { icon: "MUI.svg", language: "Material UI" },
-  { icon: "vercel.svg", language: "Vercel" },
-  { icon: "SweetAlert.svg", language: "SweetAlert2" },
+  { icon: "dotnet.svg", language: ".NET" },
+  { icon: "hibernate.svg", language: "Hibernate" },
+
+];
+
+const toolsAndPlatforms = [
+  { icon: "git.svg", language: "Git" },
+  { icon: "github.svg", language: "GitHub" },
+  { icon: "mysql.svg", language: "MySQL" },
+  { icon: "flutter.svg", language: "Flutter" },
+  { icon: "figma.svg", language: "Figma" },
+  { icon: "postman.svg", language: "Postman" },
+  { icon: "vscode.svg", language: "VS Code" },
+  { icon: "webstorm.svg", language: "WebStorm" },
+  { icon: "intellij.svg", language: "IntelliJ IDEA" },
+  { icon: "pycharm.svg", language: "PyCharm" },
+  { icon: "phpstorm.svg", language: "PhpStorm" },
+  { icon: "rider.svg", language: "Rider" },
+  { icon: "clion.svg", language: "CLion" },
+  { icon: "sceneBuilder.png", language: "Scene Builder" },
+  { icon: "eclipse.svg", language: "Eclipse" },
+  { icon: "android-studio.svg", language: "Android Studio" },
+  { icon: "visualstudio.svg", language: "Visual Studio" },
+  { icon: "linux.svg", language: "Linux" },
+  { icon: "ubuntu.svg", language: "Ubuntu" },
+  { icon: "aws.svg", language: "AWS" },
+  { icon: "Azure.svg", language: "Azure" },
+  { icon: "wordpress.svg", language: "WordPress" },
+  { icon: "blender.svg", language: "Blender" },
+  { icon: "adobe-photoshop.svg", language: "Photoshop" },
+  { icon: "adobe-after-effects.svg", language: "After Effects" },
+  { icon: "adobe-premer.svg", language: "Premiere Pro" },
+  { icon: "unreal.svg", language: "Unreal Engine" },
+
 ];
 
 export default function FullWidthTabs() {
@@ -199,7 +239,7 @@ export default function FullWidthTabs() {
           </span>
         </h2>
         <p className="text-slate-400 max-w-2xl mx-auto text-sm md:text-base mt-2">
-          Dive into a curated collection of my projects, certifications, and tech stacks. 
+          Dive into a curated collection of my projects, certifications, and tech stacks.
           Every section reflects my passion, growth, and commitment to mastering full stack development.
         </p>
       </div>
@@ -347,21 +387,30 @@ export default function FullWidthTabs() {
             )}
           </TabPanel>
 
+
           <TabPanel value={value} index={2} dir={theme.direction}>
-            <div className="container mx-auto flex justify-center items-center overflow-hidden pb-[5%]">
-              <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 lg:gap-8 gap-5">
-                {techStacks.map((stack, index) => (
-                  <div
-                    key={index}
-                    data-aos={index % 3 === 0 ? "fade-up-right" : index % 3 === 1 ? "fade-up" : "fade-up-left"}
-                    data-aos-duration={index % 3 === 0 ? "1000" : index % 3 === 1 ? "1200" : "1000"}
-                  >
-                    <TechStackIcon TechStackIcon={stack.icon} Language={stack.language} />
+            <div className="container mx-auto flex flex-col justify-center items-center overflow-hidden pb-[5%] gap-10 text-slate-400 ">
+              {[{ title: "Programming Languages", list: programmingLanguages }, { title: "Frameworks & Libraries", list: frameworksAndLibraries }, { title: "Tools & Platforms", list: toolsAndPlatforms }].map((section, sIndex) => (
+                <div key={sIndex} className="w-full">
+                  <h3 className="text-xl md:text-2xl text-slate-400 font-semibold mb-5 border-b border-white/10 pb-2">
+                    {section.title}
+                  </h3>
+                  <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-5">
+                    {section.list.map((stack, index) => (
+                      <div
+                        key={index}
+                        data-aos={index % 3 === 0 ? "fade-up-right" : index % 3 === 1 ? "fade-up" : "fade-up-left"}
+                        data-aos-duration={index % 3 === 0 ? "1000" : index % 3 === 1 ? "1200" : "1000"}
+                      >
+                        <TechStackIcon TechStackIcon={stack.icon} Language={stack.language} />
+                      </div>
+                    ))}
                   </div>
-                ))}
-              </div>
+                </div>
+              ))}
             </div>
           </TabPanel>
+
         </>
       </Box>
     </div>
