@@ -7,15 +7,15 @@ import 'aos/dist/aos.css'
 const Header = memo(() => (
   <div className="text-center lg:mb-8 mb-2 px-[5%]">
     <div className="inline-block relative group">
-      <h2 
-        className="text-4xl md:text-5xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-[#6366f1] to-[#a855f7]" 
+      <h2
+        className="text-4xl md:text-5xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-[#6366f1] to-[#a855f7]"
         data-aos="zoom-in-up"
         data-aos-duration="600"
       >
         About Me
       </h2>
     </div>
-    <p 
+    <p
       className="mt-2 text-gray-400 max-w-2xl mx-auto text-base sm:text-lg flex items-center justify-center gap-2"
       data-aos="zoom-in-up"
       data-aos-duration="800"
@@ -29,8 +29,8 @@ const Header = memo(() => (
 
 const ProfileImage = memo(() => (
   <div className="flex justify-end items-center sm:p-12 sm:py-0 sm:pb-0 p-0 py-2 pb-2">
-    <div 
-      className="relative group" 
+    <div
+      className="relative group"
       data-aos="fade-up"
       data-aos-duration="1000"
     >
@@ -44,11 +44,11 @@ const ProfileImage = memo(() => (
       <div className="relative">
         <div className="w-72 h-72 sm:w-80 sm:h-80 rounded-full overflow-hidden shadow-[0_0_40px_rgba(120,119,198,0.3)] transform transition-all duration-700 group-hover:scale-105">
           <div className="absolute inset-0 border-4 border-white/20 rounded-full z-20 transition-all duration-700 group-hover:border-white/40 group-hover:scale-105" />
-          
+
           {/* Optimized overlay effects - disabled on mobile */}
           <div className="absolute inset-0 bg-gradient-to-b from-black/20 via-transparent to-black/40 z-10 transition-opacity duration-700 group-hover:opacity-0 hidden sm:block" />
           <div className="absolute inset-0 bg-gradient-to-t from-purple-500/20 via-transparent to-blue-500/20 z-10 opacity-0 group-hover:opacity-100 transition-opacity duration-700 hidden sm:block" />
-          
+
           <img
             src="/Photo2.png"
             alt="Profile"
@@ -72,12 +72,12 @@ const StatCard = memo(({ icon: Icon, color, value, label, description, animation
   <div data-aos={animation} data-aos-duration={1300} className="relative group">
     <div className="relative z-10 bg-gray-900/50 backdrop-blur-lg rounded-2xl p-6 border border-white/10 overflow-hidden transition-all duration-300 hover:scale-105 hover:shadow-2xl h-full flex flex-col justify-between">
       <div className={`absolute -z-10 inset-0 bg-gradient-to-br ${color} opacity-10 group-hover:opacity-20 transition-opacity duration-300`}></div>
-      
+
       <div className="flex items-center justify-between mb-4">
         <div className="w-16 h-16 rounded-full flex items-center justify-center bg-white/10 transition-transform group-hover:rotate-6">
           <Icon className="w-8 h-8 text-white" />
         </div>
-        <span 
+        <span
           className="text-4xl font-bold text-white"
           data-aos="fade-up-left"
           data-aos-duration="1500"
@@ -88,7 +88,7 @@ const StatCard = memo(({ icon: Icon, color, value, label, description, animation
       </div>
 
       <div>
-        <p 
+        <p
           className="text-sm uppercase tracking-wider text-gray-300 mb-2"
           data-aos="fade-up"
           data-aos-duration="800"
@@ -97,7 +97,7 @@ const StatCard = memo(({ icon: Icon, color, value, label, description, animation
           {label}
         </p>
         <div className="flex items-center justify-between">
-          <p 
+          <p
             className="text-xs text-gray-400"
             data-aos="fade-up"
             data-aos-duration="1000"
@@ -117,7 +117,7 @@ const AboutPage = () => {
   const { totalProjects, totalCertificates, YearExperience } = useMemo(() => {
     const storedProjects = JSON.parse(localStorage.getItem("projects") || "[]");
     const storedCertificates = JSON.parse(localStorage.getItem("certificates") || "[]");
-    
+
     const startDate = new Date("2021-11-06");
     const today = new Date();
     const experience = today.getFullYear() - startDate.getFullYear() -
@@ -134,12 +134,12 @@ const AboutPage = () => {
   useEffect(() => {
     const initAOS = () => {
       AOS.init({
-        once: false, 
+        once: false,
       });
     };
 
     initAOS();
-    
+
     // Debounced resize handler
     let resizeTimer;
     const handleResize = () => {
@@ -184,7 +184,7 @@ const AboutPage = () => {
 
   return (
     <div
-      className="h-auto pb-[10%] text-white overflow-hidden px-[5%] sm:px-[5%] lg:px-[10%] mt-10 sm-mt-0" 
+      className="h-auto pb-[10%] text-white overflow-hidden px-[5%] sm:px-[5%] lg:px-[10%] mt-10 sm-mt-0"
       id="About"
     >
       <Header />
@@ -192,7 +192,7 @@ const AboutPage = () => {
       <div className="w-full mx-auto pt-8 sm:pt-12 relative">
         <div className="flex flex-col-reverse lg:grid lg:grid-cols-2 gap-10 lg:gap-16 items-center">
           <div className="space-y-6 text-center lg:text-left">
-            <h2 
+            <h2
               className="text-3xl sm:text-4xl lg:text-5xl font-bold"
               data-aos="fade-right"
               data-aos-duration="1000"
@@ -200,7 +200,7 @@ const AboutPage = () => {
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#6366f1] to-[#a855f7]">
                 Hello, I'm
               </span>
-              <span 
+              <span
                 className="block mt-2 text-gray-200"
                 data-aos="fade-right"
                 data-aos-duration="1300"
@@ -208,37 +208,46 @@ const AboutPage = () => {
                 Lahiru Prasad
               </span>
             </h2>
-            
-            <p 
+
+            <p
               className="text-base sm:text-lg lg:text-xl text-gray-400 leading-relaxed text-justify pb-4 sm:pb-0"
               data-aos="fade-right"
               data-aos-duration="1500"
             >
-              I'm a passionate Full Stack Developer and Software Engineering undergrad at the University of Ruhuna. 
-                I love building engaging and responsive web applications using React, Node.js, and modern tech stacks. 
-                Always eager to learn, solve problems, and bring ideas to life through clean code and creativity.
+              I'm a passionate Full Stack Developer and Software Engineering undergrad at the University of Ruhuna.
+              I love building engaging and responsive web applications using React, Node.js, and modern tech stacks.
+              Always eager to learn, solve problems, and bring ideas to life through clean code and creativity.
             </p>
 
             <div className="flex flex-col lg:flex-row items-center lg:items-start gap-4 lg:gap-4 lg:px-0 w-full">
-              <a href="https://drive.google.com/drive/folders/1BOm51Grsabb3zj6Xk27K-iRwI1zITcpo" className="w-full lg:w-auto">
-              <button 
-                data-aos="fade-up"
-                data-aos-duration="800"
-                className="w-full lg:w-auto sm:px-6 py-2 sm:py-3 rounded-lg bg-gradient-to-r from-[#6366f1] to-[#a855f7] text-white font-medium transition-all duration-300 hover:scale-105 flex items-center justify-center lg:justify-start gap-2 shadow-lg hover:shadow-xl animate-bounce-slow"
+              {/* Download CV */}
+              <a
+                href="https://raw.githubusercontent.com/Lahiru-LK/Lahiru-LK/d905ceec241a50bfa9cc780fd71fbbcfe11b48c2/cv's/test.pdf"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="w-full lg:w-auto"
               >
-                <FileText className="w-4 h-4 sm:w-5 sm:h-5" /> Download CV
-              </button>
+                <button
+                  data-aos="fade-up"
+                  data-aos-duration="800"
+                  className="w-full lg:w-auto sm:px-6 py-2 sm:py-3 rounded-lg bg-gradient-to-r from-[#6366f1] to-[#a855f7] text-white font-medium transition-all duration-300 hover:scale-105 flex items-center justify-center lg:justify-start gap-2 shadow-lg hover:shadow-xl animate-bounce-slow"
+                >
+                  <FileText className="w-4 h-4 sm:w-5 sm:h-5" /> Download CV
+                </button>
               </a>
+
+              {/* View Projects */}
               <a href="#Portofolio" className="w-full lg:w-auto">
-              <button 
-                data-aos="fade-up"
-                data-aos-duration="1000"
-                className="w-full lg:w-auto sm:px-6 py-2 sm:py-3 rounded-lg border border-[#a855f7]/50 text-[#a855f7] font-medium transition-all duration-300 hover:scale-105 flex items-center justify-center lg:justify-start gap-2 hover:bg-[#a855f7]/10 animate-bounce-slow delay-200"
-              >
-                <Code className="w-4 h-4 sm:w-5 sm:h-5" /> View Projects
-              </button>
+                <button
+                  data-aos="fade-up"
+                  data-aos-duration="1000"
+                  className="w-full lg:w-auto sm:px-6 py-2 sm:py-3 rounded-lg border border-[#a855f7]/50 text-[#a855f7] font-medium transition-all duration-300 hover:scale-105 flex items-center justify-center lg:justify-start gap-2 hover:bg-[#a855f7]/10 animate-bounce-slow delay-200"
+                >
+                  <Code className="w-4 h-4 sm:w-5 sm:h-5" /> View Projects
+                </button>
               </a>
             </div>
+
           </div>
 
           <ProfileImage />
