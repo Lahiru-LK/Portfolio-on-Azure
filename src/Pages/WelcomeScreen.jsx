@@ -17,7 +17,7 @@ const TypewriterEffect = ({ text }) => {
       } else {
         clearInterval(timer);
       }
-    }, 260);
+    }, 180);
 
     return () => clearInterval(timer);
   }, [text]);
@@ -70,7 +70,7 @@ const WelcomeScreen = ({ onLoadingComplete }) => {
       setTimeout(() => {
         onLoadingComplete?.();
       }, 1000);
-    }, 6000);
+    }, 4000);
 
     return () => clearTimeout(timer);
   }, [onLoadingComplete]);
