@@ -222,7 +222,7 @@ const AboutPage = () => {
             <div className="flex flex-col lg:flex-row items-center lg:items-start gap-4 lg:gap-4 lg:px-0 w-full">
               {/* Download CV */}
               <a
-                href="https://raw.githubusercontent.com/Lahiru-LK/Lahiru-LK/582e4d54a6326c5a8fb39f36de138289380e562a/cv's/H.P.G%20Lahiru%20Prasad_SE.pdf"
+                href="https://raw.githubusercontent.com/Lahiru-LK/Lahiru-LK/e131e18b6c64c79390e21e613f810a6411b3191d/cv's/H.P.G%20Lahiru%20Prasad_SE.pdf"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="w-full lg:w-auto"
